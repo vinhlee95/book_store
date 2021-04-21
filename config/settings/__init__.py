@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'apps.book_store'
 ]
 
@@ -124,3 +125,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Graphene-Django https://github.com/graphql-python/graphene-django#settings
+GRAPHENE = {
+    'SCHEMA': 'lib.graphql.schema'
+}
