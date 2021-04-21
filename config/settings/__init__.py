@@ -128,5 +128,5 @@ STATIC_URL = '/static/'
 
 # Graphene-Django https://github.com/graphql-python/graphene-django#settings
 GRAPHENE = {
-    'SCHEMA': 'lib.graphql.schema'
+    'SCHEMA': 'lib.graphql.schema.schema'
 }
