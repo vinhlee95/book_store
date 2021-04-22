@@ -18,6 +18,17 @@ class BookType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     authors = graphene.List(AuthorType)
+    books = graphene.List(BookType)
+    get_book_by_title = graphene.Field(type=BookType, title=graphene.String(required=True))
 
-    def resolve_authors(self, info, **kwargs):
+    def resolve_authors(self, info):
         return Author.objects.all()
+
+    def resolve_books(self, info):
+        return Book.objects.all()
+
+    def resolve_get_book_by_title(self, info, title):
+        try:
+            return Book.objects.get(title=title)
+        except Book.DoesNotExist:
+            return None
