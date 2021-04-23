@@ -14,7 +14,7 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     synopsis = models.TextField()
     author = models.ForeignKey(Author, related_name="books", on_delete=models.CASCADE)
     published_date = models.DateField(default=datetime.now(tz=pytz.utc))
