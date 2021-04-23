@@ -15,8 +15,7 @@ class CreateBook(graphene.Mutation):
         book_data = BookInput(required=True)
 
     # Fields of the Mutation when it is resolved
-    ok = graphene.Boolean()
-    book = graphene.Field(lambda: BookType)
+    Output = BookType
 
     def mutate(self, info, book_data: BookInput = None):
         if not book_data:
@@ -25,7 +24,7 @@ class CreateBook(graphene.Mutation):
         author = Author.objects.get(name=book_data.author_name)
         new_book = Book(title=book_data.title, synopsis=book_data.synopsis, author=author)
         new_book.save()
-        return CreateBook(ok=True, book=new_book)
+        return new_book
 
 
 class Mutation(graphene.ObjectType):
