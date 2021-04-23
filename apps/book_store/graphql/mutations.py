@@ -1,7 +1,7 @@
 import graphene
 
 from apps.book_store.models import Book, Author
-from apps.book_store.graphql.types import BookType
+from apps.book_store.graphql.types import BookNode
 
 
 class BookInput(graphene.InputObjectType):
@@ -15,7 +15,7 @@ class CreateBook(graphene.Mutation):
         book_data = BookInput(required=True)
 
     # Fields of the Mutation when it is resolved
-    Output = BookType
+    Output = BookNode
 
     def mutate(self, info, book_data: BookInput = None):
         if not book_data:

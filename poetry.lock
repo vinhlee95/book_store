@@ -43,6 +43,17 @@ argon2 = ["argon2-cffi (>=16.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-filter"
+version = "2.4.0"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+Django = ">=2.2"
+
+[[package]]
 name = "graphene"
 version = "2.1.8"
 description = "GraphQL Framework for Python"
@@ -204,7 +215,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "b5d2fecef068d7e17ea91b7336536c3286a6ac733e7a6fd7ffbb8533e22ed92b"
+content-hash = "0401c51c498072c7513779cd322fb306af62a8b2b4058443b2c6eb93a5fb38af"
 
 [metadata.files]
 aniso8601 = [
@@ -222,6 +233,10 @@ dj-database-url = [
 django = [
     {file = "Django-3.1.4-py3-none-any.whl", hash = "sha256:5c866205f15e7a7123f1eec6ab939d22d5bde1416635cab259684af66d8e48a2"},
     {file = "Django-3.1.4.tar.gz", hash = "sha256:edb10b5c45e7e9c0fb1dc00b76ec7449aca258a39ffd613dbd078c51d19c9f03"},
+]
+django-filter = [
+    {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},
+    {file = "django_filter-2.4.0-py3-none-any.whl", hash = "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"},
 ]
 graphene = [
     {file = "graphene-2.1.8-py2.py3-none-any.whl", hash = "sha256:09165f03e1591b76bf57b133482db9be6dac72c74b0a628d3c93182af9c5a896"},

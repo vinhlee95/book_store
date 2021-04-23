@@ -4,16 +4,26 @@ from graphene_django import DjangoObjectType
 from apps.book_store.models import Author, Book
 
 
-class AuthorType(DjangoObjectType):
+class AuthorNode(DjangoObjectType):
     class Meta:
         model = Author
         fields = ("id", "name")
+        filter_fields = ["id", "name"]
+        interfaces = (graphene.relay.Node,)
 
 
-class BookType(DjangoObjectType):
+class BookNode(DjangoObjectType):
     class Meta:
         model = Book
         fields = ("id", "title", "synopsis", "author", "published_date")
+        # Allow for some more advanced filtering here
+        filter_fields = {
+            'title': ['exact', 'icontains', 'istartswith'],
+            'synopsis': ['exact', 'icontains'],
+            'author': ['exact'],
+            'author__name': ['exact', 'istartswith'],
+        }
+        interfaces = (graphene.relay.Node,)
 
 
 # Interfaces
@@ -32,4 +42,4 @@ class CatType(graphene.ObjectType):
 # Unions
 class SearchResultType(graphene.Union):
     class Meta:
-        types = (AuthorType, BookType)
+        types = (AuthorNode, BookNode)
