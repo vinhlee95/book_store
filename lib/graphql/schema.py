@@ -1,6 +1,6 @@
 from graphene import ObjectType, Schema
 
-from apps.book_store.graphql.schema import Query as BookStoreQuery
+from apps.book_store.graphql.schema import Query as BookStoreQuery, Mutation as BookStoreMutation
 
 
 class Query(BookStoreQuery, ObjectType):
@@ -9,4 +9,4 @@ class Query(BookStoreQuery, ObjectType):
     pass
 
 
-schema = Schema(query=Query)
+schema = Schema(query=Query, mutation=BookStoreMutation)
