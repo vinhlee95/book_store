@@ -95,6 +95,14 @@ rest_framework = ["djangorestframework (>=3.6.3)"]
 test = ["pytest (>=3.6.3)", "pytest-cov", "coveralls", "mock", "pytz", "pytest-django (>=3.3.2)", "djangorestframework (>=3.6.3)", "django-filter (<2)", "django-filter (>=2)"]
 
 [[package]]
+name = "graphene-django-optimizer"
+version = "0.8.0"
+description = "Optimize database access inside graphene queries."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "graphql-core"
 version = "2.3.2"
 description = "GraphQL implementation for Python"
@@ -215,7 +223,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "0401c51c498072c7513779cd322fb306af62a8b2b4058443b2c6eb93a5fb38af"
+content-hash = "991f127a09887301c9dbd4b825b775a9a03fd6218f0f71ee775d2d9f4062b7b3"
 
 [metadata.files]
 aniso8601 = [
@@ -245,6 +253,9 @@ graphene = [
 graphene-django = [
     {file = "graphene-django-2.15.0.tar.gz", hash = "sha256:b78c9b05bc899016b9cc5bf13faa1f37fe1faa8c5407552c6ddd1a28f46fc31a"},
     {file = "graphene_django-2.15.0-py2.py3-none-any.whl", hash = "sha256:02671d195f0c09c8649acff2a8f4ad4f297d0f7d98ea6e6cdf034b81bab92880"},
+]
+graphene-django-optimizer = [
+    {file = "graphene-django-optimizer-0.8.0.tar.gz", hash = "sha256:79269880d59d0a35d41751ddcb419220c4ad3871960416371119f447cb2e1a77"},
 ]
 graphql-core = [
     {file = "graphql-core-2.3.2.tar.gz", hash = "sha256:aac46a9ac524c9855910c14c48fc5d60474def7f99fd10245e76608eba7af746"},

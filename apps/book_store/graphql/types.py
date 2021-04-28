@@ -1,10 +1,10 @@
 import graphene
-from graphene_django import DjangoObjectType
+import graphene_django_optimizer as gql_optimizer
 
 from apps.book_store.models import Author, Book
 
 
-class AuthorNode(DjangoObjectType):
+class AuthorNode(gql_optimizer.OptimizedDjangoObjectType):
     class Meta:
         model = Author
         fields = ("id", "name")
@@ -12,7 +12,7 @@ class AuthorNode(DjangoObjectType):
         interfaces = (graphene.relay.Node,)
 
 
-class BookNode(DjangoObjectType):
+class BookNode(gql_optimizer.OptimizedDjangoObjectType):
     class Meta:
         model = Book
         fields = ("id", "title", "synopsis", "author", "published_date")

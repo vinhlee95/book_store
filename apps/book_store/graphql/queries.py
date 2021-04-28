@@ -12,3 +12,4 @@ class Query(graphene.ObjectType):
 
     def resolve_get_cat(self, info):
         return {"name": "foo", "age": 2, "breed": "bar"}
+
