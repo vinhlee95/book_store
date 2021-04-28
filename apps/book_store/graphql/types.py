@@ -2,6 +2,7 @@ import graphene
 import graphene_django_optimizer as gql_optimizer
 
 from apps.book_store.models import Author, Book
+from apps.book_store.graphql.loaders import author_loader
 
 
 class AuthorNode(gql_optimizer.OptimizedDjangoObjectType):
@@ -24,6 +25,11 @@ class BookNode(gql_optimizer.OptimizedDjangoObjectType):
             'author__name': ['exact', 'istartswith'],
         }
         interfaces = (graphene.relay.Node,)
+
+    author_id: graphene.Field(lambda: Author)
+
+    def resolve_author(self, info):
+        return author_loader.load(self.author_id)
 
 
 # Interfaces
