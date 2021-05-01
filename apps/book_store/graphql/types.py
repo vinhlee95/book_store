@@ -2,15 +2,20 @@ import graphene
 import graphene_django_optimizer as gql_optimizer
 
 from apps.book_store.models import Author, Book
-from apps.book_store.graphql.loaders import author_loader
+from apps.book_store.graphql.loaders import author_loader, book_loader
 
 
 class AuthorNode(gql_optimizer.OptimizedDjangoObjectType):
     class Meta:
         model = Author
-        fields = ("id", "name")
+        fields = ("id", "name", "books")
         filter_fields = ["id", "name"]
         interfaces = (graphene.relay.Node,)
+
+    id: graphene.Int()
+
+    def resolve_books(self, info):
+        return book_loader.load(self.id)
 
 
 class BookNode(gql_optimizer.OptimizedDjangoObjectType):
